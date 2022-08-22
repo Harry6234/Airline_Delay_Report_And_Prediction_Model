@@ -20,33 +20,42 @@ glimpse(airlines) # this works similar to the print function
 # first with a facet_wrap
 ggplot(data=airlines)+ geom_point(mapping= aes(x=Airline, y=Flight ))+
 facet_wrap(~DayOfWeek)+
-  labs(title='Multivariate Analysis', caption= 'Data obtained from Kaggle')
-
-ggplot(data=airlines)+ 
-  geom_point(mapping=aes(x=Flight, y=Length, color=Airline))+
-  labs(title='Flight Vs Length of Flight', caption ='Data obtained from Kaggle')
+  labs(title='Multivariate Analysis', caption= 'Data Source: Kaggle')
 
 
 
  # Univariate Analysis
 names(airlines)
 ggplot(data=airlines, aes(Flight))+geom_histogram(bins=3, binwidth = 3)+
-  labs(title='Distribution of Flight variable', caption = 'Data obtained from Kaggle')
 names(airlines)
 
 ggplot(data=airlines, aes(DayOfWeek))+geom_histogram(bins=10, binwidth = 2)+
-  labs(title = 'Distribution of DayOfWeek Variable', caption = 'Data obtained from Kaggle')
+  labs(title = 'Distribution of DayOfWeek Variable', caption = 'Data Source: Kaggle')
 
 
 # lets do a bivariate Analysis
 ggplot(data=airlines)+geom_bar(mapping=aes(x=Airline, fill=Delay))+
   labs(title = "Airlines Vs Delay", subtitle = 'Which Airline(s) had the most delays',
-       caption='Data obtained from Kaggle')
+       caption='Data Source: Kaggle')
+
+
 
        
 #Multivariate Analysis
 ggplot(data=airlines)+geom_point(mapping=aes(x=Flight, y=Airline, color=DayOfWeek))+
-  labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data obtained from kaggle')
+  labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data Source: Kaggle')
 
 ggplot(data=airlines)+geom_bar(mapping=aes(x=Flight, color=DayOfWeek))+
-  labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data obtained from kaggle')
+  labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data Source: Kaggle')
+ggplot(data=airlines)+ 
+  geom_point(mapping=aes(x=Flight, y=Length, color=Airline))+
+  labs(title='Flight Vs Length of Flight', caption ='Data Source: Kaggle')
+
+ggplot(data=airlines, aes(Flight)) + scale_fill_brewer(palette = "Spectral")+
+  geom_histogram(aes(fill=Airline), 
+                 binwidth = .1, 
+                 col="black", 
+                 size=.1) +  # change binwidth
+  labs(title="Histogram with Auto Binning", 
+       subtitle="Engine Displacement across Vehicle Classes")  
+
