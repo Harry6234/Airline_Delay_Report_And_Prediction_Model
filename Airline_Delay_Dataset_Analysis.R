@@ -55,5 +55,5 @@ ggplot(data=airlines)+
 ggplot(data=airlines, aes(Flight)) + scale_fill_brewer(palette = "Spectral")+
   geom_histogram(aes(fill=Airline), binwidth = .1, col="black",  size=.1) +  # change bin width
  labs(title="Histogram with Auto Binning", caption = 'Data Source: Kaggle')  
-
+ # more work need to be done
 
