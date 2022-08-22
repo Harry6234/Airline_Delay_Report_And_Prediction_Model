@@ -57,12 +57,3 @@ ggplot(data=airlines, aes(Flight)) + scale_fill_brewer(palette = "Spectral")+
  labs(title="Histogram with Auto Binning", caption = 'Data Source: Kaggle')  
 
 
-ggplot(airlines, aes(DayOfWeek, Flight, fill = Airline)) + 
-  geom_tile(colour = "white") + 
-  facet_grid(Airline~Delay) + 
-  scale_fill_gradient(low="red", high="green") +
-  labs(x="Week of Month",
-       y="",
-       title = "Ti", 
-       caption = 'Data Source: Kaggle', 
-       fill="Close")
