@@ -46,16 +46,23 @@ ggplot(data=airlines)+geom_point(mapping=aes(x=Flight, y=Airline, color=DayOfWee
   labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data Source: Kaggle')
 
 ggplot(data=airlines)+geom_bar(mapping=aes(x=Flight, color=DayOfWeek))+
-  labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data Source: Kaggle')
+labs(title = 'Flight Vs Airline for each DayOfWeek', caption = 'Data Source: Kaggle')
+
 ggplot(data=airlines)+ 
   geom_point(mapping=aes(x=Flight, y=Length, color=Airline))+
   labs(title='Flight Vs Length of Flight', caption ='Data Source: Kaggle')
 
 ggplot(data=airlines, aes(Flight)) + scale_fill_brewer(palette = "Spectral")+
-  geom_histogram(aes(fill=Airline), 
-                 binwidth = .1, 
-                 col="black", 
-                 size=.1) +  # change binwidth
-  labs(title="Histogram with Auto Binning", 
-       subtitle="Engine Displacement across Vehicle Classes")  
+  geom_histogram(aes(fill=Airline), binwidth = .1, col="black",  size=.1) +  # change bin width
+ labs(title="Histogram with Auto Binning", caption = 'Data Source: Kaggle')  
 
+
+ggplot(airlines, aes(DayOfWeek, Flight, fill = Airline)) + 
+  geom_tile(colour = "white") + 
+  facet_grid(Airline~Delay) + 
+  scale_fill_gradient(low="red", high="green") +
+  labs(x="Week of Month",
+       y="",
+       title = "Ti", 
+       caption = 'Data Source: Kaggle', 
+       fill="Close")
